@@ -1,0 +1,63 @@
+\begin{frame}
+    \frametitle{Definitions and scope}
+    \textbf{So far:}
+    \begin{itemize}
+        \item Systems evolve deterministically
+            \[\vb{y}_{n+1} = f(\vb{y}_n).\]
+        \pause
+        \item Timeseries are projections of the true state
+            \[y_n = s(\vb{y}_n).\]
+    \end{itemize}
+    
+\end{frame}
+\begin{frame}
+    \frametitle{Definitions and scope}
+    \begin{itemize}
+        \item Measurement noise:
+            \[x_n = s(\vb{y}_n) + \eta_n\]
+        \pause
+        \item Dynamic noise:
+            \[\vb{y}_{n+1} = f(\vb{y}_n + \vb{\eta}_n)\]
+    \end{itemize}
+    \textbf{In this talk, we only focus on measurement noise.}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Why does classical filtering not work?}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.85\textwidth]{plots/01_motivation_henon-noise-ts.pdf}
+        \caption*{Timeseries of the $x$-coordinate of the Hénon map for 200 steps (above) and of white noise with the same mean and standard derivation (below).}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Why does classical filtering not work?}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.85\textwidth]{plots/01_motivation_henon-noisy-ts.pdf}
+        \caption*{Timeseries of the Hénon map without noise (above) and with $5\%$ relative noise (below).}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Why does classical filtering not work?}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.85\textwidth]{plots/01_motivation_henon-noise-power.pdf}
+        \caption*{Power spectrum of the Hénon map (above) and of white noise with the same mean and standard derivation (below) for 2000 steps.}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+    \frametitle{The problem}
+    \textbf{Problem:}
+    \begin{itemize}
+        \item Spectral analysis and filtering are of limited use for reducing noise in chaotic systems. ($\to$ broadband)
+    \end{itemize}
+    \pause
+    \textbf{Idea:}
+    \begin{itemize}
+        \item Make use of higher dimensional structures in the state space of dynamical systems.
+    \end{itemize}
+\end{frame}

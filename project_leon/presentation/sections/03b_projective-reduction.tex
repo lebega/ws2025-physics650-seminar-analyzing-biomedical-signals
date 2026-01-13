@@ -1,0 +1,87 @@
+\begin{frame}
+    \frametitle{The projective method}
+    \textbf{Assumption:}
+    \begin{itemize}
+        \item The true $D$-dim attractor $\sA$ is smooth enough to be locally approximated linearly. 
+    \end{itemize}
+    \pause
+    \textbf{Idea:} (\cite{grassberger1993noise})
+    \begin{enumerate}
+        \item Find (hyper-)plane that locally approximates the attractor in an $\eps$-neighbourhood of $\vb{x}_n$.
+        \item Project $\vb{x}_n$ onto that subspace.
+        \item Reduce $\eps$.
+        \item Iterate.
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}
+    \frametitle{The projective method}
+    \begin{figure}
+        \centering
+        \includegraphics[height=0.7\textheight]{plots/03b_projective_diagram-simple-prod.pdf}
+        \caption*{Schematic visualization of how both methods apply noise correction to a point outside the attractor.}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Constraints}
+    \textbf{Ideally:}
+    \[F(\vb{y}_n) = 0\]
+    \textbf{Approximation}:
+    \[ \vb{a}^{(n)}\cdot(\vb{x}-\overline{\vb{x}}^{(n)}) \approx 0.\]
+\end{frame}
+
+\begin{frame}
+    \frametitle{Finding the subspace}
+    For a fixed $\vb{x}_n$ with neighbourhood $\sU_n$:
+    \begin{enumerate}
+        \item Covariance matrix:
+            \[C_{ij} = \frac{1}{\abs{\sU_n}}\sum_{k\in\sU_n}x_{k+i}x_{k+j} - \overline{x_{k+i}}\cdot\overline{x_{k+j}}\]
+        \vspace{-0.2cm}
+        \pause
+        \item Pricipal Component Analysis (PCA):
+            \[\sigma_1^2 \geq \ldots \geq \sigma_m^2 \text{ eigenvalues with eigenvectors } \vb{v}_1,\ldots,\vb{v}_m\]
+        \vspace{-0.2cm}
+        \pause
+        \item Identify subspace:\begin{itemize}
+            \item Large eigenvalues $\rightarrow$ tangent
+            \item Small eigenvalues $\rightarrow$ orthogonal
+        \end{itemize}
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Projecting onto the subspace}
+    \begin{itemize}
+        \item Noise directions (small eigenvalues):
+            \[\vb{v}_{D+1},\ldots,\vb{v}_m \leftrightarrow \text{ orthogonal to the attractor}\]
+        \pause
+        \item Correction:
+            \[\delta\vb{x}_n = -\sum_{k=D+1}^m (\vb{x}_n\cdot\vb{v}_k)v_k\]
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{The consistency problem}
+    \begin{itemize}
+        \item The scalar $x_n$ appears in $m$ delay vectors
+            \begin{align*}
+                \vb{x}_n &= (\textcolor{red}{x_n}, \ldots, x_{n+m-1}) \\
+                &\vdots \\
+                \vb{x}_{n-m+1} &= (x_{n-m+1},\ldots, \textcolor{red}{x_n}).
+            \end{align*}
+        \item \textbf{Problem:} Projecting $\vb{x}_n$ independently gives $m$ different corrections for $x_n$.
+        \pause
+        \item \textbf{Solution:} Average
+            \[ x_n^\f{corr} = x_n + \frac{1}{m}\sum_{j=0}^{m-1}\delta x_{n-j}^{(j)}\]
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Projective noise reduction on the Hénon attractor}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.85\textwidth]{plots/03b_projective_noisy-reduced-attr.pdf}
+        \caption*{Noisy reconstructed Hénon attractor for 10000 steps (left) and attractor after applying the first order noise reduction algorithm for three iterations with $m=5$ and $D=2$.}
+    \end{figure}
+\end{frame}

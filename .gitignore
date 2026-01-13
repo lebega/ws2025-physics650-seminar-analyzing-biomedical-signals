@@ -1,0 +1,166 @@
+# ============================
+#  Python
+# ============================
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+.venv/
+ENV/
+env.bak/
+
+# Distribution / packaging
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit test / coverage reports
+.coverage
+*.cover
+*.py,cover
+.coverage.*
+htmlcov/
+.cache/
+nosetests.xml
+coverage.xml
+*.log
+
+# Jupyter notebooks
+.ipynb_checkpoints
+
+# IDE-specific Python settings
+.pytest_cache/
+.mypy_cache/
+.dmypy.json
+.pyre/
+.pytype/
+
+# ============================
+#  LaTeX
+# ============================
+*.aux
+*.bbl
+*.blg
+*.brf
+*.fdb_latexmk
+*.fls
+*.idx
+*.ilg
+*.ind
+*.lof
+*.log
+*.lot
+*.maf
+*.mtc*
+*.nav
+*.nlo
+*.out
+*.pdfsync
+*.ps
+*.snm
+*.synctex.gz
+*.toc
+*.ttt
+*.vrb
+*.xdy
+*.run.xml
+*.bcf
+*.acn
+*.acr
+*.alg
+*.glg
+*.glo
+*.gls
+*.ist
+*.loa
+
+# LaTeX intermediate folders (if used)
+latex.out/
+_build/
+
+# ============================
+#  IDEs & Editors
+# ============================
+
+# PyCharm
+.idea/
+*.iml
+
+# VSCodium / VSCode
+.vscode/
+.history/
+*.code-workspace
+
+# ============================
+#  OS & General Temp Files
+# ============================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+
+# Lock and temp files
+*.lock
+!uv.lock
+*.tmp
+*.swp
+*.swo
+*.bak
+*.orig
+*.old
+*.log
+
+# ============================
+#  Miscellaneous
+# ============================
+# Backup files
+*.backup
+*.bk
+*.sav
+
+# Archives
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+*.7z
+
+# Custom project outputs
+output/
+temp/
+tmp/
+logs/
+
+# Tisean
+tisean/
+stdin*

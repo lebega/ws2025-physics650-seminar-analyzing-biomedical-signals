@@ -1,0 +1,89 @@
+% \documentclass[10pt]{beamer}
+\documentclass[handout, 10pt]{beamer}
+
+\usepackage{homework}
+
+\usetheme{Madrid}
+\setbeamersize{text margin left=30pt,text margin right=20pt}
+\graphicspath{{../figures/}}
+
+\usepackage[backend=biber,style=authoryear-comp]{biblatex}
+\addbibresource{literature.bib}
+% Beamer needs this to show footnotes properly
+\setbeamertemplate{footnote}{%
+  \parindent 0em\noindent
+  \raggedright
+  \insertfootnotemark\insertfootnotetext\par
+}
+% Change item symbols for bibliography
+\setbeamertemplate{bibliography item}[triangle]
+\setbeamertemplate{itemize item}[triangle]
+
+% Title Page
+\title[Nonlinear Noise Reduction]{Nonlinear Noise Reduction}
+\subtitle{Computational Physics Seminar on Analyzing Biomedical Signals}
+\author{Leon Galbas}
+\date{12.01.2026}
+\institute[Universität Bonn]{Rheinische Friedrich-Wilhelms-Universität Bonn}
+
+
+\begin{document}
+\frame{\titlepage}
+
+% Table of Contents
+\begin{frame}{Outline}
+    \tableofcontents
+\end{frame}
+% Current section
+\AtBeginSection[ ]
+{
+\begin{frame}{Outline}
+    \tableofcontents[currentsection]
+\end{frame}
+}
+\AtBeginSubsection[]
+{
+  \begin{frame}{Outline}
+    \tableofcontents[currentsection,currentsubsection]
+  \end{frame}
+}
+
+% Start of actual presentation
+
+\section{Motivation}
+\input{sections/01_motivation}
+
+
+\section{Recap: Phase Space Reconstruction}
+\input{sections/02_phase-space}
+
+
+\section{Nonlinear Noise Reduction}
+
+\subsection{A simple method}
+\input{sections/03a_simple-reduction}
+
+\subsection{The projective method}
+\input{sections/03b_projective-reduction}
+
+
+\section{Results}
+\input{sections/04_results}
+
+
+% Sources
+\section*{Sources}
+\begin{frame}{Sources: Software}
+    The software used to generate the datasets as well as apply the algorithms is the TISEAN package first published by \cite{hegger1999practical}. The plots shown in this presentation were produced using the Python packages Matplotlib and Numpy. The Code can be found in the sources below:
+    \begin{itemize}
+        \item \textbf{TISEAN:} \url{https://www.mpipks-dresden.mpg.de/tisean/Tisean_3.0.1/index.html}
+        \item \textbf{Presentation:} \url{https://github.com/lebega/ws2025-physics650-seminar-analyzing-biomedical-signals}
+    \end{itemize}
+\end{frame}
+\begin{frame}{Sources: Literature}
+    \begin{tiny}
+        \printbibliography
+    \end{tiny}
+\end{frame}
+
+\end{document}

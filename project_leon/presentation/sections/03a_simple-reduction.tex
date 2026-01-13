@@ -1,0 +1,30 @@
+\begin{frame}
+\frametitle{A simple method: local averaging}
+Proposed by \cite{schreiber1993extremely}:
+\begin{enumerate}
+    \item Find neighbourhood $\sU_{n,\eps} = \{k \mid \norm{\vb{x}_k-\vb{x}_n} < \eps\}$ around $\vb{x}_n$.
+    \item Compute corrected vectors
+        \[ x_{n+m/2}^\f{corr} = \frac{1}{\abs{\sU_{n,\eps}}}\sum_{k\in\sU_{n,\eps}} x_{k+m/2}.\]
+    \item Replace all $x_n$.
+    \item Decrease $\eps \to \f{RMS}(x_n^\f{corr}-x_n)$.
+    \item Iterate.
+\end{enumerate}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Simple noise reduction on the Hénon attractor}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.85\textwidth]{plots/03a_simple_noisy-reduced-attr.pdf}
+        \caption*{Noisy reconstructed Hénon attractor for 10000 steps (left) and attractor after applying the simple noise reduction algorithm for five iterations with $\eps_0=15\%$.}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Limitations}
+    \begin{figure}
+        \centering
+        \includegraphics[height=0.7\textheight]{plots/03a_simple_error.pdf}
+        \caption*{\textbf{Curvature bias:} In curved regions, the average pulls points inside the curve, shrinking the attractor.}
+    \end{figure}
+\end{frame}
