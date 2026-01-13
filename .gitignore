@@ -162,5 +162,5 @@ tmp/
 logs/
 
 # Tisean
-tisean/
+TISEAN/
 stdin*
